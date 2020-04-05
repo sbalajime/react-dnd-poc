@@ -1,24 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Machine from './components/Machine';
+import grid from './components/Grid';
+import  LeftPane from './views/LeftPane';
+import  RightPane from './views/RightPane';
+import { DndProvider } from 'react-dnd'
+import Backend from 'react-dnd-html5-backend'
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DndProvider backend={Backend}>
+        <div style={{display:'flex', flexDirection:'row', height:'100%'}}>
+          <LeftPane />
+          <RightPane num={10}/>
+        </div>
+      </DndProvider>     
     </div>
   );
 }
